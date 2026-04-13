@@ -78,18 +78,4 @@ public class Profesor extends Persona {
                 + " | Salario total: " + calcularSalarioTotal()
                 + " | Prestaciones: " + calcularPrestaciones();
     }
-
-    public String obtenerDatosProfesor() {
-        return "Profesor: " + nombre
-                + "\nÁrea: " + area
-                + "\nSalario total: " + calcularSalarioTotal()
-                + "\nPrestaciones: " + calcularPrestaciones();
-    }
-
-    public String obtenerDatosProfesor(String areaBuscada) {
-        if (this.area.equalsIgnoreCase(areaBuscada)) {
-            return obtenerDatosProfesor();
-        }
-        return "El profesor " + nombre + " no pertenece al área " + areaBuscada;
-    }
 }
