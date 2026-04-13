@@ -53,4 +53,11 @@ public class Persona {
         this.fechaDeNacimiento = fechaDeNacimiento;
     }
     
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre +
+               "\n Dirección: " + direccion +
+               "\n Teléfono: " + telefono +
+               "\n Fecha de nacimiento: " + fechaDeNacimiento;
+    }
 }
