@@ -11,10 +11,10 @@ package Modelo;
 public class Persona {
     protected String nombre; 
     protected String direccion;
-    protected int telefono;
+    protected String telefono;
     protected Fecha fechaDeNacimiento;
     
-    public Persona(String nombre, String direccion, int telefono, Fecha fechaDeNacimiento){
+    public Persona(String nombre, String direccion, String telefono, Fecha fechaDeNacimiento){
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -37,11 +37,11 @@ public class Persona {
         this.direccion = direccion;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
