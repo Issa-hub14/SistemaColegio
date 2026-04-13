@@ -84,7 +84,7 @@ public class ColegioControlador {
         int mes = Integer.parseInt(mesStr);
         int anio = Integer.parseInt(anioStr);
 
-        if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || anio < 1900) {
+        if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || anio < 0 || anio > 2026) {
             return "Error: fecha inválida.";
         }
         int anioActual = 2026;
@@ -115,7 +115,7 @@ public class ColegioControlador {
         int dia = Integer.parseInt(diaStr);
         int mes = Integer.parseInt(mesStr);
         int anio = Integer.parseInt(anioStr);
-        if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || anio < 1900) {
+        if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || anio < 0 || anio > 2026) {
             return "Error: fecha inválida.";
         }
 
