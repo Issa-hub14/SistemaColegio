@@ -111,19 +111,42 @@ public class ColegioControlador {
         if (!esNumeroEntero(diaStr) || !esNumeroEntero(mesStr) || !esNumeroEntero(anioStr)) {
             return "Error: la fecha debe contener solo números.";
         }
-        
+
         int dia = Integer.parseInt(diaStr);
         int mes = Integer.parseInt(mesStr);
         int anio = Integer.parseInt(anioStr);
         if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || anio < 1900) {
             return "Error: fecha inválida.";
         }
-        
+
         Fecha nuevaFecha = new Fecha(dia, mes, anio);
         Estudiante nuevoEstudiante = new Estudiante(nombre, direccion, telefono, nuevaFecha, codigo, grado);
         colegio.agregarEstudiante(nuevoEstudiante);
 
         return "Estudiante " + nombre + " agregad@ correctamente.";
-    
+    }
+
+    public String obtenerReporteProfesores() {
+        if (colegio.getContadorProfesores() == 0) {
+            return "Error: no hay profesores registrados.";
+        }
+        return colegio.reporteProfesores();
+    }
+
+    public String obtenerReporteProfesoresPorArea(String area) {
+        if (colegio.getContadorProfesores() == 0) {
+            return "Error: no hay profesores registrados.";
+        }
+        if (area.isEmpty()) {
+            return "Error: debe ingresar un área para filtrar.";
+        }
+        return colegio.reporteProfesores(area);
+    }
+
+    public String obtenerReporteEstudiantes() {
+        if (colegio.getContadorEstudiantes() == 0) {
+            return "Error: no hay estudiantes registrados.";
+        }
+        return colegio.reporteEstudiantes();
     }
 }
