@@ -79,7 +79,7 @@ public class ColegioControlador {
         if (!esNumeroEntero(horasMesStr)) {
             return "Error: las horas deben ser un número entero.";
         }
-        
+
         int dia = Integer.parseInt(diaStr);
         int mes = Integer.parseInt(mesStr);
         int anio = Integer.parseInt(anioStr);
@@ -91,7 +91,7 @@ public class ColegioControlador {
         if ((anioActual - anio) < 18) {
             return "Error: el profesor debe ser mayor de edad.";
         }
-        int cedula= Integer.parseInt(cedulaStr);
+        int cedula = Integer.parseInt(cedulaStr);
         double salarioHora = Double.parseDouble(salarioHoraStr);
         int horasMes = Integer.parseInt(horasMesStr);
 
@@ -100,5 +100,30 @@ public class ColegioControlador {
         colegio.agregarProfesor(nuevoProfesor);
 
         return "Profesor(a) " + nombre + " agregad@ correctamente.";
+    }
+
+    public String agregarEstudiante(String nombre, String direccion, String telefono, String diaStr, String mesStr, String anioStr,
+            String codigo, String grado) {
+
+        if (nombre.isEmpty() || direccion.isEmpty() || telefono.isEmpty() || codigo.isEmpty() || grado.isEmpty()) {
+            return "Error: todos los campos son obligatorios.";
+        }
+        if (!esNumeroEntero(diaStr) || !esNumeroEntero(mesStr) || !esNumeroEntero(anioStr)) {
+            return "Error: la fecha debe contener solo números.";
+        }
+        
+        int dia = Integer.parseInt(diaStr);
+        int mes = Integer.parseInt(mesStr);
+        int anio = Integer.parseInt(anioStr);
+        if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || anio < 1900) {
+            return "Error: fecha inválida.";
+        }
+        
+        Fecha nuevaFecha = new Fecha(dia, mes, anio);
+        Estudiante nuevoEstudiante = new Estudiante(nombre, direccion, telefono, nuevaFecha, codigo, grado);
+        colegio.agregarEstudiante(nuevoEstudiante);
+
+        return "Estudiante " + nombre + " agregad@ correctamente.";
+    
     }
 }
