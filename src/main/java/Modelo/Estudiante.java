@@ -39,8 +39,8 @@ public class Estudiante extends Persona {
     @Override
     public String toString() {
         return super.toString()
-                + " | Cargo: Estudiante"
-                + " | Código: " + codigoEstudiante
-                + " | Grado: " + grado;
+                + "\n| Cargo: Estudiante"
+                + "\n| Código: " + codigoEstudiante
+                + "\n| Grado: " + grado;
     }
 }

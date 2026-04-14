@@ -72,10 +72,10 @@ public class Profesor extends Persona {
     @Override
     public String toString() {
         return super.toString()
-                + " | Cargo: Profesor"
-                + " | Cédula: " + cedula
-                + " | Área: " + area
-                + " | Salario total: " + calcularSalarioTotal()
-                + " | Prestaciones: " + calcularPrestaciones();
+                + "\n| Cargo: Profesor"
+                + "\n| Cédula: " + cedula
+                + "\n| Área: " + area
+                + "\n| Salario total: " + calcularSalarioTotal()
+                + "\n| Prestaciones: " + calcularPrestaciones();
     }
 }
