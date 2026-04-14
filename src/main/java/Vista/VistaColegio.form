@@ -96,8 +96,8 @@
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel11" min="-2" pref="72" max="-2" attributes="0"/>
-                                              <Component id="jLabel10" min="-2" pref="43" max="-2" attributes="0"/>
                                               <Component id="jLabel9" min="-2" pref="58" max="-2" attributes="0"/>
+                                              <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -275,10 +275,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel17" min="-2" pref="76" max="-2" attributes="0"/>
-                                      <Component id="areaBuscar" min="-2" pref="71" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="areaBuscar" min="-2" pref="71" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="profesoresPorArea" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
@@ -297,6 +294,11 @@
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jLabel17" min="-2" pref="157" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -309,13 +311,11 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="reporteProfesores" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel17" min="-2" pref="16" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="areaBuscar" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="profesoresPorArea" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jLabel17" min="-2" pref="16" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="areaBuscar" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="profesoresPorArea" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="12" max="32767" attributes="0"/>
                       </Group>
@@ -354,7 +354,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel17">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="&#xc1;rea a buscar:"/>
+                    <Property name="text" type="java.lang.String" value="&#xc1;rea  de trabajo a buscar:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="areaBuscar">
@@ -417,7 +417,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#xc1;rea:"/>
+                <Property name="text" type="java.lang.String" value="&#xc1;rea trabajo:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
@@ -454,6 +454,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="nombre">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombreActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="direccion">
             </Component>
