@@ -97,8 +97,10 @@ public class ColegioControlador {
 
         Fecha nuevaFecha = new Fecha(dia, mes, anio);
         Profesor nuevoProfesor = new Profesor(nombre, direccion, telefono, nuevaFecha, cedula, area, salarioHora, horasMes);
-        colegio.agregarProfesor(nuevoProfesor);
-
+        boolean agregado = colegio.agregarPersona(nuevoProfesor);
+        if (!agregado) {
+            return "Error: ya existe un profesor con esa cédula.";
+        }
         return "Profesor(a) " + nombre + " agregad@ correctamente.";
     }
 
@@ -121,8 +123,10 @@ public class ColegioControlador {
 
         Fecha nuevaFecha = new Fecha(dia, mes, anio);
         Estudiante nuevoEstudiante = new Estudiante(nombre, direccion, telefono, nuevaFecha, codigo, grado);
-        colegio.agregarEstudiante(nuevoEstudiante);
-
+        boolean agregado = colegio.agregarPersona(nuevoEstudiante);
+        if (!agregado) {
+            return "Error: ya existe un estudiante con ese código.";
+        }
         return "Estudiante " + nombre + " agregad@ correctamente.";
     }
 

@@ -54,18 +54,40 @@ public class Colegio {
         this.contadorEstudiantes = 0;
     }
 
-    public void agregarProfesor(Profesor nuevoProfesor) {
-        if (contadorProfesores < profesores.length) {
-            profesores[contadorProfesores] = nuevoProfesor;
-            contadorProfesores++;
+    private boolean existeCedula(int cedula) {
+        for (int i = 0; i < contadorProfesores; i++) {
+            if (profesores[i].getCedula() == cedula) {
+                return true;
+            }
         }
+        return false;
     }
 
-    public void agregarEstudiante(Estudiante nuevoEstudiante) {
-        if (contadorEstudiantes < estudiantes.length) {
+    private boolean existeCodigo(String codigo) {
+        for (int i = 0; i < contadorEstudiantes; i++) {
+            if (estudiantes[i].getCodigoEstudiante().equalsIgnoreCase(codigo)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean agregarPersona(Profesor nuevoProfesor) {
+        if (contadorProfesores < profesores.length && !existeCedula(nuevoProfesor.getCedula())) {
+            profesores[contadorProfesores] = nuevoProfesor;
+            contadorProfesores++;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean agregarPersona(Estudiante nuevoEstudiante) {
+        if (contadorEstudiantes < estudiantes.length && !existeCodigo(nuevoEstudiante.getCodigoEstudiante())) {
             estudiantes[contadorEstudiantes] = nuevoEstudiante;
             contadorEstudiantes++;
+            return true;
         }
+        return false;
     }
 
     public String reporteEstudiantes() {
@@ -104,18 +126,18 @@ public class Colegio {
         resultado += "Total de prestaciones: " + totalPrestaciones;
         return resultado;
     }
-    
-    public String reporteProfesores(String area){
+
+    public String reporteProfesores(String area) {
         Profesor[] profesoresOrdenados = ordenarPorSalario();
         String resultado = "-- LISTA DE PROFESORES DEL ÁREA: " + area.toUpperCase() + " --\n";
         int encontrados = 0;
-        for (int i=0; i<contadorProfesores; i++){
-            if(profesoresOrdenados[i].getArea().equalsIgnoreCase(area)){
-                resultado+= (encontrados +1)+". "+ profesoresOrdenados[i].toString() +"\n ------ \n";
+        for (int i = 0; i < contadorProfesores; i++) {
+            if (profesoresOrdenados[i].getArea().equalsIgnoreCase(area)) {
+                resultado += (encontrados + 1) + ". " + profesoresOrdenados[i].toString() + "\n ------ \n";
                 encontrados++;
             }
         }
-        if(encontrados==0){
+        if (encontrados == 0) {
             resultado += "No hay profesores en el área " + area;
         }
         return resultado;
